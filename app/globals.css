@@ -2,32 +2,90 @@
 @tailwind components;
 @tailwind utilities;
 
-:root {
-  --foreground-rgb: 0, 0, 0;
-  --background-start-rgb: 214, 219, 220;
-  --background-end-rgb: 255, 255, 255;
+* {
+  padding: 0;
+  margin: 0;
+  list-style: none;
+  outline: none;
+  box-sizing: border-box;
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --foreground-rgb: 255, 255, 255;
-    --background-start-rgb: 0, 0, 0;
-    --background-end-rgb: 0, 0, 0;
-  }
+body{
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
 }
 
-body {
-  color: rgb(var(--foreground-rgb));
-  background: linear-gradient(
-      to bottom,
-      transparent,
-      rgb(var(--background-end-rgb))
-    )
-    rgb(var(--background-start-rgb));
+/* -----------------------------------home holder ----------------------- */
+
+.home_holder::-webkit-scrollbar {
+  width: 4px;
 }
 
-@layer utilities {
-  .text-balance {
-    text-wrap: balance;
-  }
+.home_holder::-webkit-scrollbar-track {
+  background-color: transparent;
+}
+.home_holder::-webkit-scrollbar-thumb {
+  background: #888;
+  border-radius: 10px;
+}
+.home_holder::-webkit-scrollbar-thumb:hover {
+  background: #666;
+}
+
+.stop_scrol::-webkit-scrollbar {
+  width: 0px;
+  display: none;
+}
+
+
+/* -----------------------------------search box --------------------- */
+
+.search_box {
+  -webkit-box-shadow: 0px 3px 25px -6px rgba(255, 255, 255, 1);
+  -moz-box-shadow: 0px 3px 25px -6px rgba(255, 255, 255, 1);
+  box-shadow: 0px 3px 25px -6px rgba(255, 255, 255, 1);
+}
+
+/* -----------------------------------accordions------------------------ */
+
+.accordion_title {
+  background: rgba(79, 91, 103, 0.47);
+  backdrop-filter: blur(10.5px);
+  -webkit-backdrop-filter: blur(10.5px);
+  border-radius: 5px;
+}
+
+.accordion_title:hover {
+  transition: all ease-in-out 0.15s;
+  transform: scale(1.05);
+  /* -webkit-box-shadow: 0px 7px 20px -8px rgba(133,133,133,1);
+-moz-box-shadow: 0px 7px 20px -8px rgba(133,133,133,1);
+box-shadow: 0px 7px 20px -8px rgba(133,133,133,1); */
+}
+
+.content {
+  width: 100%;
+  max-height: 0;
+  box-sizing: border-box;
+  transition: all 0.5s cubic-bezier(0, 1, 0, 1);
+  overflow: hidden;
+  border-radius: 0 0 6px 6px;
+  background: rgba(220, 220, 220, 0.1);
+  margin-top: -1px;
+  z-index: 1;
+}
+.content.showContent {
+  width: 100%;
+  height: auto;
+  max-height: 9999px;
+  box-sizing: border-box;
+  transition: all 0.5s cubic-bezier(1, 0, 1, 0);
+}
+
+/* --------------------------modal----------------------- */
+
+
+.modal_style{
+  width: 390px !important;
 }
